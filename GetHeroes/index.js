@@ -14,7 +14,7 @@ module.exports = function(context, req) {
         .find()
         .toArray((err, result) => {
           if (err) throw err;
-          console.log("retieved successfully. This is Awesome. Woo hoo!");
+          console.log("Result retieved successfully. Beauty!");
           result.forEach(hero => delete hero._id);
           context.res = {
             status: 200,
