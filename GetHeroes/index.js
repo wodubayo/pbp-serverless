@@ -7,14 +7,14 @@ module.exports = function(context, req) {
     { auth: auth },
     (err, database) => {
       if (err) throw err;
-      console.log("Connected susccessfully");
+      context.log("Connected susccessfully");
       const db = database.db(process.env.CosmosDB);
       db
         .collection("Heroes")
         .find()
         .toArray((err, result) => {
           if (err) throw err;
-          console.log("Result retieved successfully. Beauty!");
+          context.log("Result retieved successfully. Beauty!");
           result.forEach(hero => delete hero._id);
           context.res = {
             status: 200,
